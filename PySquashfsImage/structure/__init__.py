@@ -24,23 +24,23 @@ class Superblock(_Base):
     _fields_ = [
         ("_s_magic", c_uint32),
         ("_inodes", c_uint32),
-        ("_mkfs_time", c_uint32),
-        ("_block_size", c_uint32),
-        ("_fragments", c_uint32),
-        ("_compression", c_uint16),
-        ("_block_log", c_uint16),
-        ("_flags", c_uint16),
-        ("_no_ids", c_uint16),
-        ("_s_major", c_uint16),
-        ("_s_minor", c_uint16),
+        ("_s_major", c_uint32),
+        ("_s_minor", c_uint32),
+        ("_bytes_used", c_uint64), # 11186262
+        ("_mkfs_time", c_uint64),
         ("_root_inode", c_uint64),
-        ("_bytes_used", c_uint64),
-        ("_id_table_start", c_uint64),
+        ("_compression", c_uint64), # 0x02 - compression?
+        ("_lookup_table_start", c_uint64), # 11186232
+        ("_fragments", c_uint64),
+        ("_fragment_table_start", c_uint64), # 11184776
         ("_xattr_id_table_start", c_uint64),
-        ("_inode_table_start", c_uint64),
-        ("_directory_table_start", c_uint64),
-        ("_fragment_table_start", c_uint64),
-        ("_lookup_table_start", c_uint64)
+        ("_block_log", c_uint64),
+        ("_directory_table_start", c_uint64), # 11173236
+        ("_inode_table_start", c_uint64), # 11164090
+        ("_no_ids", c_uint64),
+        ("_id_table_start", c_uint64), # 11186254
+        ("_flags", c_uint32),
+        ("_block_size", c_uint32)
     ]
 
     @property

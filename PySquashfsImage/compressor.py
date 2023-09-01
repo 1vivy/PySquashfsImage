@@ -69,6 +69,7 @@ class ZSTDCompressor(Compressor):
 compressors = {
     Compression.NO: Compressor,
     Compression.ZLIB: ZlibCompressor,
+    Compression.LZMA: XZCompressor,
     Compression.LZO: LZOCompressor,
     Compression.XZ: XZCompressor,
     Compression.LZ4: LZ4Compressor,
